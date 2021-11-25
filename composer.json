@@ -1,0 +1,16 @@
+{
+    "name": "oscase/thepuzzle",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Oscase\\Thepuzzle\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Oliver Scase",
+            "email": "oliver@lagerroos.nu"
+        }
+    ],
+    "require": {}
+}
