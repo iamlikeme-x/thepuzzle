@@ -2,6 +2,8 @@
 
 namespace Puzzle\Readers;
 
+use SplFileObject;
+
 class FileReader implements ReaderInterface
 {
     /**
@@ -27,6 +29,7 @@ class FileReader implements ReaderInterface
     {
         $this->filename = $filename;
         $this->file     = new \SplFileObject($filename, 'r');
+        $this->file->setFlags(SplFileObject::DROP_NEW_LINE);
     }
 
     /**
@@ -39,7 +42,11 @@ class FileReader implements ReaderInterface
     {
         $pieceStrings = [];
         while (!$this->file->eof()) {
-            $pieceStrings[] = $this->file->fgets();
+            $line = rtrim($this->file->fgets());
+
+            if ($line) {
+                $pieceStrings[] = $line;
+            }
         }
 
         $count = array_shift($pieceStrings);

@@ -10,6 +10,7 @@ use Puzzle\Validators\PuzzleValidator;
 use Puzzle\Validators\RowValidator;
 
 require_once 'vendor/autoload.php';
+require_once 'src/Utils/utils.php';
 
 if ($argc < 2) {
     die("You must specify an input file");
@@ -30,4 +31,4 @@ $factory = new PuzzleFactory($validators);
 
 $app = new App($reader, $factory);
 
-$app->run();
+echo 'Number of solution(s): ' . $app->run() . PHP_EOL;

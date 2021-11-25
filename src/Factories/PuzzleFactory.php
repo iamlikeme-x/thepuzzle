@@ -56,14 +56,13 @@ class PuzzleFactory
     /**
      * Create a puzzle
      * 
-     * @param int             $width  The width of each row
-     * @param Objects\Piece[] $pieces An array of puzzle pieces
+     * @param Objects\Row[] $rows The rows of the puzzle
      * 
      * @return Objects\Puzzle
      */
-    public function createPuzzle($width, array $pieces): Objects\Puzzle
+    public function createPuzzle(array $rows): Objects\Puzzle
     {
-        return new Objects\Puzzle($this, $this->createRows($width, $pieces), $this->getValidator("puzzle"));
+        return new Objects\Puzzle($this, $rows, $this->getValidator("puzzle"));
     }
 
     /**

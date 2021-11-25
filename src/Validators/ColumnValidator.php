@@ -7,7 +7,7 @@ use Puzzle\Objects\Column;
 /**
  * Validator class for columns
  */
-class ColumnValidator
+class ColumnValidator implements ColumnValidatorInterface
 {
     /**
      * Validate wether the column is valid

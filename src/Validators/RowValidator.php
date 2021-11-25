@@ -7,7 +7,7 @@ use Puzzle\Objects\Row;
 /**
  * Validator class for rows
  */
-class RowValidator
+class RowValidator implements RowValidatorInterface
 {
     /**
      * Validate wether the row is valid

@@ -61,7 +61,7 @@ class Puzzle extends AbstractObject
      * 
      * @return Column[]
      */
-    public function getColumns()
+    public function getColumns(): array
     {
         $rowLength = $this->getTopRow()->getLength();
         $columns = [];
@@ -73,5 +73,7 @@ class Puzzle extends AbstractObject
 
             $columns[] = $this->factory->createColumn($pieces);
         }
+
+        return $columns;
     }
 }
