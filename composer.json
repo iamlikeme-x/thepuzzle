@@ -3,7 +3,7 @@
     "type": "project",
     "autoload": {
         "psr-4": {
-            "Oscase\\Thepuzzle\\": "src/"
+            "Puzzle": "src/"
         }
     },
     "authors": [
@@ -12,5 +12,7 @@
             "email": "oliver@lagerroos.nu"
         }
     ],
-    "require": {}
+    "require": {
+        "php": ">=7.4"
+    }
 }
