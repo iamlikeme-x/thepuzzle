@@ -2,7 +2,7 @@
 
 namespace Puzzle;
 
-use Puzzle\Factories\FactoryInterface;
+use Puzzle\Factories\PuzzleFactory;
 use Puzzle\Readers\ReaderInterface;
 
 class App
@@ -13,7 +13,7 @@ class App
      * @param ReaderInterface  $reader The reader to inject
      * @param FactoryInterface $factory The factory to inject
      */
-    public function __construct(ReaderInterface $reader, FactoryInterface $factory)
+    public function __construct(ReaderInterface $reader, PuzzleFactory $factory)
     {
         $this->reader  = $reader;
         $this->factory = $factory;
@@ -21,6 +21,9 @@ class App
 
     public function run()
     {
+        $read = $this->reader->read();
+        $pieceStrings = $read['pieces'];
+
 
     }
 }

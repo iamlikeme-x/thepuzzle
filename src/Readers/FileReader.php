@@ -37,6 +37,16 @@ class FileReader implements ReaderInterface
      */
     public function read(): array
     {
-        $
+        $pieceStrings = [];
+        while (!$this->file->eof()) {
+            $pieceStrings[] = $this->file->fgets();
+        }
+
+        $count = array_shift($pieceStrings);
+
+        return [
+            'count'  => $count,
+            'pieces' => $pieceStrings,
+        ];
     }
 }

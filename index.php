@@ -4,6 +4,10 @@
 use Puzzle\App;
 use Puzzle\Factories\PuzzleFactory;
 use Puzzle\Readers\FileReader;
+use Puzzle\Validators\ColumnValidator;
+use Puzzle\Validators\PieceValidator;
+use Puzzle\Validators\PuzzleValidator;
+use Puzzle\Validators\RowValidator;
 
 require_once 'vendor/autoload.php';
 
@@ -14,7 +18,15 @@ if ($argc < 2) {
 $filename = $argv[1];
 
 $reader  = new FileReader($filename);
-$factory = new PuzzleFactory();
+
+$validators = [
+    'puzzle' => new PuzzleValidator(),
+    'row'    => new RowValidator(),
+    'column' => new ColumnValidator,
+    'piece'  => new PieceValidator,
+];
+
+$factory = new PuzzleFactory($validators);
 
 $app = new App($reader, $factory);
 
